@@ -1,0 +1,15 @@
+{
+  "background_color": "green",
+  "description": "Panoramic images and videos of realty projects.",
+  "display": "fullscreen",
+  "icons": [
+    {
+      "src": "icon/vrealty-icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "name": "Awesome Realty Investments",
+  "short_name": "RealtyVR",
+  "start_url": "/ZTV1/index.html"
+}
