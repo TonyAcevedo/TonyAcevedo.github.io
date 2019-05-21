@@ -1,7 +1,7 @@
 // Garden Gnome Software - Skin
 // Pano2VR 6.1 beta2/17561
 // Filename: 1BR_simplex_V3_Ora.ggsk
-// Generated 2019-05-21T16:49:47
+// Generated 2019-05-21T17:08:54
 
 function pano2vrSkin(player,base) {
 	var me=this;
@@ -11638,54 +11638,6 @@ function pano2vrSkin(player,base) {
 		}
 		hotspotTemplates = [];
 	}
-	function SkinElement__3brdot_Class(parentScope,ggParent) {
-		var me=this;
-		var flag=false;
-		me.parentScope=parentScope;
-		me.ggParent=ggParent;
-		var nodeId=ggParent.ggElementNodeId();
-		me.ggNodeId=nodeId;
-		me.ggUserdata=skin.player.getNodeUserdata(nodeId);
-		me.elementMouseDown=[];
-		me.elementMouseOver=[];
-		
-		me.findElements=function(id,regex) {
-			return skin.findElements(id,regex);
-		}
-		
-		el=me.__3brdot=document.createElement('div');
-		el.ggId="3BRdot";
-		el.ggParameter={ rx:0,ry:0,a:0,sx:1,sy:1 };
-		el.ggVisible=true;
-		el.className="ggskin ggskin_rectangle ";
-		el.ggType='rectangle';
-		hs ='';
-		hs+=cssPrefix + 'border-radius : 999px;';
-		hs+='border-radius : 999px;';
-		hs+='background : #7d7d7d;';
-		hs+='border : 0px solid #000000;';
-		hs+='cursor : default;';
-		hs+='height : 11px;';
-		hs+='position : absolute;';
-		hs+='right : -70px;';
-		hs+='top : -210px;';
-		hs+='visibility : inherit;';
-		hs+='width : 11px;';
-		hs+='pointer-events:auto;';
-		el.setAttribute('style',hs);
-		el.style[domTransform + 'Origin']='50% 50%';
-		me.__3brdot.ggIsActive=function() {
-			return player.getCurrentNode()==this.ggElementNodeId();
-		}
-		el.ggElementNodeId=function() {
-			if ((this.parentNode) && (this.parentNode.ggElementNodeId)) {
-				return this.parentNode.ggElementNodeId();
-			}
-			return me.ggNodeId;
-		}
-		me.__3brdot.ggUpdatePosition=function (useTransition) {
-		}
-	};
 	function SkinElement__2brdot_Class(parentScope,ggParent) {
 		var me=this;
 		var flag=false;
@@ -11784,6 +11736,54 @@ function pano2vrSkin(player,base) {
 			return me.ggNodeId;
 		}
 		me.__1brdot.ggUpdatePosition=function (useTransition) {
+		}
+	};
+	function SkinElement__3brdot_Class(parentScope,ggParent) {
+		var me=this;
+		var flag=false;
+		me.parentScope=parentScope;
+		me.ggParent=ggParent;
+		var nodeId=ggParent.ggElementNodeId();
+		me.ggNodeId=nodeId;
+		me.ggUserdata=skin.player.getNodeUserdata(nodeId);
+		me.elementMouseDown=[];
+		me.elementMouseOver=[];
+		
+		me.findElements=function(id,regex) {
+			return skin.findElements(id,regex);
+		}
+		
+		el=me.__3brdot=document.createElement('div');
+		el.ggId="3BRdot";
+		el.ggParameter={ rx:0,ry:0,a:0,sx:1,sy:1 };
+		el.ggVisible=true;
+		el.className="ggskin ggskin_rectangle ";
+		el.ggType='rectangle';
+		hs ='';
+		hs+=cssPrefix + 'border-radius : 999px;';
+		hs+='border-radius : 999px;';
+		hs+='background : #7d7d7d;';
+		hs+='border : 0px solid #000000;';
+		hs+='cursor : default;';
+		hs+='height : 11px;';
+		hs+='position : absolute;';
+		hs+='right : -70px;';
+		hs+='top : -210px;';
+		hs+='visibility : inherit;';
+		hs+='width : 11px;';
+		hs+='pointer-events:auto;';
+		el.setAttribute('style',hs);
+		el.style[domTransform + 'Origin']='50% 50%';
+		me.__3brdot.ggIsActive=function() {
+			return player.getCurrentNode()==this.ggElementNodeId();
+		}
+		el.ggElementNodeId=function() {
+			if ((this.parentNode) && (this.parentNode.ggElementNodeId)) {
+				return this.parentNode.ggElementNodeId();
+			}
+			return me.ggNodeId;
+		}
+		me.__3brdot.ggUpdatePosition=function (useTransition) {
 		}
 	};
 	function SkinCloner_thumbnail_cloner_Class(nodeId, parentScope,ggParent,parameter) {
