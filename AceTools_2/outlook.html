@@ -1,0 +1,521 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<HTML>
+
+<HEAD>
+
+<TITLE> Outlook Express Simulator </TITLE>
+
+<META NAME="Author" CONTENT="Daniel McCausland">
+
+<SCRIPT LANGUAGE="javascript" SRC="/tier1/docs/5409.js"></SCRIPT>
+
+<!-- These commented-out img tags added for docdb compatibility
+
+<img src="/images/outlook/5420h.gif">
+
+<img src="/images/ydial/email/outexpress/5420s.gif">
+
+<img src="/images/ydial/email/outexpress/5420u.gif">
+
+<img src="/images/ydial/email/outexpress/5420r.gif">
+
+<img src="/images/ydial/email/outexpress/5420c.gif">
+
+<img src="/images/ydial/email/outexpress/5420p.gif">
+
+<img src="/images/ydial/email/outexpress/5420b.gif">
+
+<img src="/images/ydial/email/outexpress/5420t.gif">
+
+<img src="/images/ydial/email/outexpress/5420m.gif">
+
+<img src="/images/ydial/email/outexpress/5420i.gif">
+
+<img src="/images/ydial/email/outexpress/5420f.gif">
+
+<img src="/images/ydial/email/outexpress/5420a.gif">
+
+<img src="/images/ydial/email/outexpress/5420k.gif">
+
+<img src="/images/ydial/email/outexpress/5420o.gif">
+
+<img src="/images/ydial/email/outexpress/5420n.gif">
+
+<img src="/images/ydial/email/outexpress/5420g.gif">
+
+<img src="/images/ydial/email/outexpress/5420e.gif">
+
+<img src="/images/ydial/email/outexpress/5420w.gif">
+
+<img src="/images/ydial/email/outexpress/5420d.gif">
+
+<img src="/images/ydial/email/outexpress/5420q.gif">
+
+<img src="/images/ydial/email/outexpress/5420j.gif">
+
+<img src="/images/ydial/email/outexpress/5420l.gif">
+
+-->
+
+<SCRIPT LANGUAGE="JavaScript">
+
+<!--
+
+//Section 1
+
+//This section sets up an array that contains every image which can be opened within the sim.  
+
+//format: divAttay("Reference Name"] - new makeDivArray("Image File Location","Div Name (prefix div automatically added","Image Name (prefix divImg automatically added","Layer number (starts with 1, higher numbers will spawn windows without closing lower number layers.  When opened or closed a div will close any layers at it's layer number or higher");
+
+function initPage() {
+
+divArray["outlookExpressFile"] = new makeDivArray("/images/ydial/email/outexpress/5420h.gif","outlookExpressFile","1");  
+
+divArray["outlookExpressEdit"] = new makeDivArray("/images/ydial/email/outexpress/5420s.gif","outlookExpressEdit","1");  
+
+divArray["outlookExpressView"] = new makeDivArray("/images/ydial/email/outexpress/5420u.gif","outlookExpressView","1");  
+
+divArray["outlookExpressTools"] = new makeDivArray("/images/ydial/email/outexpress/5420r.gif","outlookExpressTools","1");  
+
+divArray["outlookExpressMessage"] = new makeDivArray("/images/ydial/email/outexpress/5420c.gif","outlookExpressMessage","1");  
+
+divArray["outlookExpressHelp"] = new makeDivArray("/images/ydial/email/outexpress/5420p.gif","outlookExpressHelp","1");  
+
+divArray["outlookExpressToolsAccountsAll"] = new makeDivArray("/images/ydial/email/outexpress/5420b.gif","outlookExpressToolsAccountsAll","1");  
+
+divArray["outlookExpressToolsAccountsAllMailSelect"] = new makeDivArray("/images/ydial/email/outexpress/5420t.gif","outlookExpressToolsAccountsAllMailSelect","1");  
+
+divArray["outlookExpressToolsAccountsAllNewsSelect"] = new makeDivArray("/images/ydial/email/outexpress/5420m.gif","outlookExpressToolsAccountsAllNewsSelect","1");  
+
+divArray["outlookExpressToolsAccountsMail"] = new makeDivArray("/images/ydial/email/outexpress/5420i.gif","outlookExpressToolsAccountsMail","1");  
+
+divArray["outlookExpressToolsAccountsNews"] = new makeDivArray("/images/ydial/email/outexpress/5420f.gif","outlookExpressToolsAccountsNews","1");  
+
+divArray["outlookExpressToolsAccountsDirectoryService"] = new makeDivArray("/images/ydial/email/outexpress/5420a.gif","outlookExpressToolsAccountsDirectoryService","1");  
+
+divArray["outlookExpressToolsAccountsAdd"] = new makeDivArray("/images/ydial/email/outexpress/5420k.gif","outlookExpressToolsAccountsAdd","2");  
+
+divArray["outlookExpressToolsAccountsMailPropertiesGeneral"] = new makeDivArray("/images/ydial/email/outexpress/5420o.gif","outlookExpressToolsAccountsMailPropertiesGeneral","2");  
+
+divArray["outlookExpressToolsAccountsMailPropertiesServers"] = new makeDivArray("/images/ydial/email/outexpress/5420n.gif","outlookExpressToolsAccountsMailPropertiesGeneral","2");  
+
+divArray["outlookExpressToolsAccountsMailPropertiesConnection"] = new makeDivArray("/images/ydial/email/outexpress/5420g.gif","outlookExpressToolsAccountsMailPropertiesGeneral","2");  
+
+divArray["outlookExpressToolsAccountsMailPropertiesSecurity"] = new makeDivArray("/images/ydial/email/outexpress/5420e.gif","outlookExpressToolsAccountsMailPropertiesGeneral","2");  
+
+divArray["outlookExpressToolsAccountsMailPropertiesAdvanced"] = new makeDivArray("/images/ydial/email/outexpress/5420w.gif","outlookExpressToolsAccountsMailPropertiesGeneral","2");  
+
+divArray["outlookExpressToolsAccountsNewsPropertiesGeneral"] = new makeDivArray("/images/ydial/email/outexpress/5420d.gif","outlookExpressToolsAccountsNewsPropertiesGeneral","2");  
+
+divArray["outlookExpressToolsAccountsNewsPropertiesServer"] = new makeDivArray("/images/ydial/email/outexpress/5420q.gif","outlookExpressToolsAccountsNewsPropertiesGeneral","2");  
+
+divArray["outlookExpressToolsAccountsNewsPropertiesConnection"] = new makeDivArray("/images/ydial/email/outexpress/5420j.gif","outlookExpressToolsAccountsNewsPropertiesGeneral","2");  
+
+divArray["outlookExpressToolsAccountsNewsPropertiesAdvanced"] = new makeDivArray("/images/ydial/email/outexpress/5420l.gif","outlookExpressToolsAccountsNewsPropertiesGeneral","2");  
+
+}
+
+//-->
+
+</SCRIPT>
+
+</HEAD>
+
+<BODY onLoad='initPage()'>
+
+
+
+<!--Section 2-->
+
+<!-- This section creates the foundation for the page.  It is the base image.  In the case of OS sims, this is typically the desktop page-->
+
+<DIV STYLE="position:absolute;left:5;top:5"><IMG SRC="C:\Documents and Settings\aAcevedo\My Documents\images\outlook\5420v.gif" USEMAP="#outlookExpress.gif" WIDTH=800 HEIGHT=576 BORDER=0></DIV>
+
+<MAP NAME="outlookExpress.gif">
+
+  <AREA SHAPE=RECT COORDS="6,23,43,43" HREF="javascript:openLayer('outlookExpressFile')">
+
+  <AREA SHAPE=RECT COORDS="44,23,76,43" HREF="javascript:openLayer('outlookExpressEdit')">
+
+  <AREA SHAPE=RECT COORDS="77,23,114,43" HREF="javascript:openLayer('outlookExpressView')">
+
+  <AREA SHAPE=RECT COORDS="115,23,155,43" HREF="javascript:openLayer('outlookExpressTools')">
+
+  <AREA SHAPE=RECT COORDS="156,23,212,43" HREF="javascript:openLayer('outlookExpressMessage')">
+
+  <AREA SHAPE=RECT COORDS="213,23,251,43" HREF="javascript:openLayer('outlookExpressHelp')">
+
+</MAP>
+
+
+
+<!--Section 3-->
+
+<!--This section creates the div and image map for every div that can be opened.  Each div must have a single image map.  Group the divs by layer number, starting with 1-->
+
+<DIV ID="divoutlookExpressFile" STYLE='visibility:hidden;background-layer-color:FFAAFF;position:absolute;top:26;left:16;width:216'>
+
+  <IMG NAME="outlookExpressFile" USEMAP="#outlookExpressFile.gif" WIDTH=216 HEIGHT=334 BORDER=0>
+
+</DIV>
+
+<MAP NAME="outlookExpressFile.gif">
+
+  <AREA SHAPE=RECT COORDS="0,0,30,20" HREF="javascript:closeLayer('outlookExpressFile')">
+
+  <AREA SHAPE=RECT COORDS="31,0,63,20" HREF="javascript:openLayer('outlookExpressEdit')">
+
+  <AREA SHAPE=RECT COORDS="64,0,101,20" HREF="javascript:openLayer('outlookExpressView')">
+
+  <AREA SHAPE=RECT COORDS="102,0,142,20" HREF="javascript:openLayer('outlookExpressTools')">
+
+  <AREA SHAPE=RECT COORDS="143,0,199,20" HREF="javascript:openLayer('outlookExpressMessage')">
+
+  <AREA SHAPE=RECT COORDS="200,0,216,20" HREF="javascript:openLayer('outlookExpressHelp')">
+
+</MAP>
+
+
+
+<DIV ID="divoutlookExpressEdit" STYLE='visibility:hidden;background-layer-color:FFAAFF;position:absolute;top:26;left:48;width:249'>
+
+  <IMG NAME="outlookExpressEdit" USEMAP="#outlookExpressEdit.gif" WIDTH=249 HEIGHT=248 BORDER=0>
+
+</DIV>
+
+<MAP NAME="outlookExpressEdit.gif">
+
+  <AREA SHAPE=RECT COORDS="0,0,32,20" HREF="javascript:closeLayer('outlookExpressEdit')">
+
+  <AREA SHAPE=RECT COORDS="33,0,70,20" HREF="javascript:openLayer('outlookExpressView')">
+
+  <AREA SHAPE=RECT COORDS="71,0,111,20" HREF="javascript:openLayer('outlookExpressTools')">
+
+  <AREA SHAPE=RECT COORDS="112,0,168,20" HREF="javascript:openLayer('outlookExpressMessage')">
+
+  <AREA SHAPE=RECT COORDS="169,0,207,20" HREF="javascript:openLayer('outlookExpressHelp')">
+
+</MAP>
+
+
+
+<DIV ID="divoutlookExpressView" STYLE='visibility:hidden;background-layer-color:FFAAFF;position:absolute;top:26;left:82;width:169'>
+
+  <IMG NAME="outlookExpressView" USEMAP="#outlookExpressView.gif" WIDTH=169 HEIGHT=291 BORDER=0>
+
+</DIV>
+
+<MAP NAME="outlookExpressView.gif">
+
+  <AREA SHAPE=RECT COORDS="0,0,37,20" HREF="javascript:closeLayer('outlookExpressView')">
+
+  <AREA SHAPE=RECT COORDS="38,0,78,20" HREF="javascript:openLayer('outlookExpressTools')">
+
+  <AREA SHAPE=RECT COORDS="79,0,135,20" HREF="javascript:openLayer('outlookExpressMessage')">
+
+  <AREA SHAPE=RECT COORDS="136,0,169,20" HREF="javascript:openLayer('outlookExpressHelp')">
+
+</MAP>
+
+
+
+<DIV ID="divoutlookExpressTools" STYLE='visibility:hidden;background-layer-color:FFAAFF;position:absolute;top:26;left:120;width:169'>
+
+  <IMG NAME="outlookExpressTools" USEMAP="#outlookExpressTools.gif" WIDTH=248 HEIGHT=257 BORDER=0>
+
+</DIV>
+
+<MAP NAME="outlookExpressTools.gif">
+
+  <AREA SHAPE=RECT COORDS="0,0,40,20" HREF="javascript:closeLayer('outlookExpressTools')">
+
+  <AREA SHAPE=RECT COORDS="40,0,97,20" HREF="javascript:openLayer('outlookExpressMessage')">
+
+  <AREA SHAPE=RECT COORDS="98,0,136,20" HREF="javascript:openLayer('outlookExpressHelp')">
+
+  <AREA SHAPE=RECT COORDS="17,219,76,236" HREF="javascript:openLayer('outlookExpressToolsAccountsAll')">
+
+</MAP>
+
+
+
+<DIV ID="divoutlookExpressMessage" STYLE='visibility:hidden;background-layer-color:FFAAFF;position:absolute;top:26;left:161;width:251'>
+
+  <IMG NAME="outlookExpressMessage" USEMAP="#outlookExpressMessage.gif" WIDTH=251 HEIGHT=265 BORDER=0>
+
+</DIV>
+
+<MAP NAME="outlookExpressMessage.gif">
+
+  <AREA SHAPE=RECT COORDS="0,0,56,20" HREF="javascript:closeLayer('outlookExpressMessage')">
+
+  <AREA SHAPE=RECT COORDS="57,0,94,20" HREF="javascript:openLayer('outlookExpressHelp')">
+
+</MAP>
+
+
+
+<DIV ID="divoutlookExpressHelp" STYLE='visibility:hidden;background-layer-color:FFAAFF;position:absolute;top:26;left:219;width:219'>
+
+  <IMG NAME="outlookExpressHelp" USEMAP="#outlookExpressHelp.gif" WIDTH=219 HEIGHT=111 BORDER=0>
+
+</DIV>
+
+<MAP NAME="outlookExpressHelp.gif">
+
+  <AREA SHAPE=RECT COORDS="0,0,38,20" HREF="javascript:closeLayer('outlookExpressHelp')">
+
+</MAP>
+
+
+
+<DIV ID="divoutlookExpressToolsAccountsAll" STYLE='visibility:hidden;background-layer-color:FFAAFF;position:absolute;top:60;left:60;width:503'>
+
+  <IMG NAME="outlookExpressToolsAccountsAll" USEMAP="#outlookExpressToolsAccountsAll.gif" WIDTH=503 HEIGHT=308 BORDER=0>
+
+</DIV>
+
+<MAP NAME="outlookExpressToolsAccountsAll.gif">
+
+  <AREA SHAPE=RECT COORDS="481,4,498,17" HREF="javascript:closeLayer('outlookExpressToolsAccountsAll')">
+
+  <AREA SHAPE=RECT COORDS="394,270,490,294" HREF="javascript:closeLayer('outlookExpressToolsAccountsAll')">
+
+  <AREA SHAPE=RECT COORDS="14,33,58,53" HREF="javascript:openLayer('outlookExpressToolsAccountsAll')">
+
+  <AREA SHAPE=RECT COORDS="59,34,99,53" HREF="javascript:openLayer('outlookExpressToolsAccountsMail')">
+
+  <AREA SHAPE=RECT COORDS="100,34,141,53" HREF="javascript:openLayer('outlookExpressToolsAccountsNews')">
+
+  <AREA SHAPE=RECT COORDS="142,34,234,53" HREF="javascript:openLayer('outlookExpressToolsAccountsDirectoryService')">
+
+  <AREA SHAPE=RECT COORDS="394,32,490,56" HREF="javascript:openLayer('outlookExpressToolsAccountsAdd')">
+
+  <AREA SHAPE=RECT COORDS="24,115,126,132" HREF="javascript:openLayer('outlookExpressToolsAccountsAllMailSelect')">
+
+  <AREA SHAPE=RECT COORDS="24,133,135,149" HREF="javascript:openLayer('outlookExpressToolsAccountsAllNewsSelect')">
+
+</MAP>
+
+
+
+<DIV ID="divoutlookExpressToolsAccountsAllMailSelect" STYLE='visibility:hidden;background-layer-color:FFAAFF;position:absolute;top:60;left:60;width:503'>
+
+  <IMG NAME="outlookExpressToolsAccountsAllMailSelect" USEMAP="#outlookExpressToolsAccountsAllMailSelect.gif" WIDTH=503 HEIGHT=308 BORDER=0>
+
+</DIV>
+
+<MAP NAME="outlookExpressToolsAccountsAllMailSelect.gif">
+
+  <AREA SHAPE=RECT COORDS="481,4,498,17" HREF="javascript:closeLayer('outlookExpressToolsAccountsAll')">
+
+  <AREA SHAPE=RECT COORDS="394,270,490,294" HREF="javascript:closeLayer('outlookExpressToolsAccountsAll')">
+
+  <AREA SHAPE=RECT COORDS="14,33,58,53" HREF="javascript:openLayer('outlookExpressToolsAccountsAll')">
+
+  <AREA SHAPE=RECT COORDS="59,34,99,53" HREF="javascript:openLayer('outlookExpressToolsAccountsMail')">
+
+  <AREA SHAPE=RECT COORDS="100,34,141,53" HREF="javascript:openLayer('outlookExpressToolsAccountsNews')">
+
+  <AREA SHAPE=RECT COORDS="142,34,234,53" HREF="javascript:openLayer('outlookExpressToolsAccountsDirectoryService')">
+
+  <AREA SHAPE=RECT COORDS="394,32,490,56" HREF="javascript:openLayer('outlookExpressToolsAccountsAdd')">
+
+  <AREA SHAPE=RECT COORDS="24,115,126,132" HREF="javascript:openLayer('outlookExpressToolsAccountsAllMailSelect')">
+
+  <AREA SHAPE=RECT COORDS="24,133,135,149" HREF="javascript:openLayer('outlookExpressToolsAccountsAllNewsSelect')">
+
+  <AREA SHAPE=RECT COORDS="394,91,490,114" HREF="javascript:openLayer('outlookExpressToolsAccountsMailPropertiesGeneral')">
+
+</MAP>
+
+
+
+<DIV ID="divoutlookExpressToolsAccountsAllNewsSelect" STYLE='visibility:hidden;background-layer-color:FFAAFF;position:absolute;top:60;left:60;width:503'>
+
+  <IMG NAME="outlookExpressToolsAccountsAllNewsSelect" USEMAP="#outlookExpressToolsAccountsAllNewsSelect.gif" WIDTH=503 HEIGHT=308 BORDER=0>
+
+</DIV>
+
+<MAP NAME="outlookExpressToolsAccountsAllNewsSelect.gif">
+
+  <AREA SHAPE=RECT COORDS="481,4,498,17" HREF="javascript:closeLayer('outlookExpressToolsAccountsAll')">
+
+  <AREA SHAPE=RECT COORDS="394,270,490,294" HREF="javascript:closeLayer('outlookExpressToolsAccountsAll')">
+
+  <AREA SHAPE=RECT COORDS="14,33,58,53" HREF="javascript:openLayer('outlookExpressToolsAccountsAll')">
+
+  <AREA SHAPE=RECT COORDS="59,34,99,53" HREF="javascript:openLayer('outlookExpressToolsAccountsMail')">
+
+  <AREA SHAPE=RECT COORDS="100,34,141,53" HREF="javascript:openLayer('outlookExpressToolsAccountsNews')">
+
+  <AREA SHAPE=RECT COORDS="142,34,234,53" HREF="javascript:openLayer('outlookExpressToolsAccountsDirectoryService')">
+
+  <AREA SHAPE=RECT COORDS="394,32,490,56" HREF="javascript:openLayer('outlookExpressToolsAccountsAdd')">
+
+  <AREA SHAPE=RECT COORDS="24,115,126,132" HREF="javascript:openLayer('outlookExpressToolsAccountsAllMailSelect')">
+
+  <AREA SHAPE=RECT COORDS="24,133,135,149" HREF="javascript:openLayer('outlookExpressToolsAccountsAllNewsSelect')">
+
+  <AREA SHAPE=RECT COORDS="394,91,490,114" HREF="javascript:openLayer('outlookExpressToolsAccountsNewsPropertiesGeneral')">
+
+</MAP>
+
+
+
+<DIV ID="divoutlookExpressToolsAccountsMail" STYLE='visibility:hidden;background-layer-color:FFAAFF;position:absolute;top:60;left:60;width:503'>
+
+  <IMG NAME="outlookExpressToolsAccountsMail" USEMAP="#outlookExpressToolsAccountsMail.gif" WIDTH=503 HEIGHT=308 BORDER=0>
+
+</DIV>
+
+<MAP NAME="outlookExpressToolsAccountsMail.gif">
+
+  <AREA SHAPE=RECT COORDS="481,4,498,17" HREF="javascript:closeLayer('outlookExpressToolsAccountsAll')">
+
+  <AREA SHAPE=RECT COORDS="394,270,490,294" HREF="javascript:closeLayer('outlookExpressToolsAccountsAll')">
+
+  <AREA SHAPE=RECT COORDS="14,33,58,53" HREF="javascript:openLayer('outlookExpressToolsAccountsAll')">
+
+  <AREA SHAPE=RECT COORDS="59,34,99,53" HREF="javascript:openLayer('outlookExpressToolsAccountsMail')">
+
+  <AREA SHAPE=RECT COORDS="100,34,141,53" HREF="javascript:openLayer('outlookExpressToolsAccountsNews')">
+
+  <AREA SHAPE=RECT COORDS="142,34,234,53" HREF="javascript:openLayer('outlookExpressToolsAccountsDirectoryService')">
+
+  <AREA SHAPE=RECT COORDS="394,32,490,56" HREF="javascript:openLayer('outlookExpressToolsAccountsAdd')">
+
+  <AREA SHAPE=RECT COORDS="394,91,490,114" HREF="javascript:openLayer('outlookExpressToolsAccountsMailPropertiesGeneral')">
+
+</MAP>
+
+
+
+<DIV ID="divoutlookExpressToolsAccountsNews" STYLE='visibility:hidden;background-layer-color:FFAAFF;position:absolute;top:60;left:60;width:503'>
+
+  <IMG NAME="outlookExpressToolsAccountsNews" USEMAP="#outlookExpressToolsAccountsNews.gif" WIDTH=503 HEIGHT=308 BORDER=0>
+
+</DIV>
+
+<MAP NAME="outlookExpressToolsAccountsNews.gif">
+
+  <AREA SHAPE=RECT COORDS="481,4,498,17" HREF="javascript:closeLayer('outlookExpressToolsAccountsAll')">
+
+  <AREA SHAPE=RECT COORDS="394,270,490,294" HREF="javascript:closeLayer('outlookExpressToolsAccountsAll')">
+
+  <AREA SHAPE=RECT COORDS="14,33,58,53" HREF="javascript:openLayer('outlookExpressToolsAccountsAll')">
+
+  <AREA SHAPE=RECT COORDS="59,34,99,53" HREF="javascript:openLayer('outlookExpressToolsAccountsMail')">
+
+  <AREA SHAPE=RECT COORDS="100,34,141,53" HREF="javascript:openLayer('outlookExpressToolsAccountsNews')">
+
+  <AREA SHAPE=RECT COORDS="142,34,234,53" HREF="javascript:openLayer('outlookExpressToolsAccountsDirectoryService')">
+
+  <AREA SHAPE=RECT COORDS="394,32,490,56" HREF="javascript:openLayer('outlookExpressToolsAccountsAdd')">
+
+  <AREA SHAPE=RECT COORDS="394,91,490,114" HREF="javascript:openLayer('outlookExpressToolsAccountsNewsPropertiesGeneral')">
+
+</MAP>
+
+
+
+<DIV ID="divoutlookExpressToolsAccountsDirectoryService" STYLE='visibility:hidden;background-layer-color:FFAAFF;position:absolute;top:60;left:60;width:503'>
+
+  <IMG NAME="outlookExpressToolsAccountsDirectoryService" USEMAP="#outlookExpressToolsAccountsDirectoryService.gif" WIDTH=503 HEIGHT=308 BORDER=0>
+
+</DIV>
+
+<MAP NAME="outlookExpressToolsAccountsDirectoryService.gif">
+
+  <AREA SHAPE=RECT COORDS="481,4,498,17" HREF="javascript:closeLayer('outlookExpressToolsAccountsAll')">
+
+  <AREA SHAPE=RECT COORDS="394,270,490,294" HREF="javascript:closeLayer('outlookExpressToolsAccountsAll')">
+
+  <AREA SHAPE=RECT COORDS="14,33,58,53" HREF="javascript:openLayer('outlookExpressToolsAccountsAll')">
+
+  <AREA SHAPE=RECT COORDS="59,34,99,53" HREF="javascript:openLayer('outlookExpressToolsAccountsMail')">
+
+  <AREA SHAPE=RECT COORDS="100,34,141,53" HREF="javascript:openLayer('outlookExpressToolsAccountsNews')">
+
+  <AREA SHAPE=RECT COORDS="142,34,234,53" HREF="javascript:openLayer('outlookExpressToolsAccountsDirectoryService')">
+
+  <AREA SHAPE=RECT COORDS="394,32,490,56" HREF="javascript:openLayer('outlookExpressToolsAccountsAdd')">
+
+</MAP>
+
+
+
+<DIV ID="divoutlookExpressToolsAccountsAdd" STYLE='visibility:hidden;background-layer-color:FFAAFF;position:absolute;top:97;left:543;width:138'>
+
+  <IMG NAME="outlookExpressToolsAccountsAdd" USEMAP="#outlookExpressToolsAccountsAdd.gif" WIDTH=138 HEIGHT=57 BORDER=0>
+
+</DIV>
+
+<MAP NAME="outlookExpressToolsAccountsAdd.gif">
+
+  <AREA SHAPE=RECT COORDS="18,4,50,16" HREF="javascript:openLayer('outlookExpressToolsAccountsMailPropertiesGeneral')">
+
+  <AREA SHAPE=RECT COORDS="18,22,58,33" HREF="javascript:openLayer('outlookExpressToolsAccountsNewsPropertiesGeneral')">
+
+</MAP>
+
+
+
+<DIV ID="divoutlookExpressToolsAccountsMailPropertiesGeneral" STYLE='visibility:hidden;background-layer-color:FFAAFF;position:absolute;top:80;left:75;width:367'>
+
+  <IMG NAME="outlookExpressToolsAccountsMailPropertiesGeneral" USEMAP="#outlookExpressToolsAccountsMailPropertiesGeneral.gif" WIDTH=367 HEIGHT=443 BORDER=0>
+
+</DIV>
+
+<MAP NAME="outlookExpressToolsAccountsMailPropertiesGeneral.gif">
+
+  <AREA SHAPE=RECT COORDS="345,4,362,18" HREF="javascript:closeLayer('outlookExpressToolsAccountsMailPropertiesGeneral')">
+
+  <AREA SHAPE=RECT COORDS="120,409,196,433" HREF="javascript:closeLayer('outlookExpressToolsAccountsMailPropertiesGeneral')">
+
+  <AREA SHAPE=RECT COORDS="201,410,277,433" HREF="javascript:closeLayer('outlookExpressToolsAccountsMailPropertiesGeneral')">
+
+  <AREA SHAPE=RECT COORDS="10,30,59,49" HREF="javascript:openLayer('outlookExpressToolsAccountsMailPropertiesGeneral')">
+
+  <AREA SHAPE=RECT COORDS="60,30,107,49" HREF="javascript:openLayer('outlookExpressToolsAccountsMailPropertiesServers')">
+
+  <AREA SHAPE=RECT COORDS="108,30,174,49" HREF="javascript:openLayer('outlookExpressToolsAccountsMailPropertiesConnection')">
+
+  <AREA SHAPE=RECT COORDS="175,30,224,49" HREF="javascript:openLayer('outlookExpressToolsAccountsMailPropertiesSecurity')">
+
+  <AREA SHAPE=RECT COORDS="225,30,284,49" HREF="javascript:openLayer('outlookExpressToolsAccountsMailPropertiesAdvanced')">
+
+</MAP>
+
+
+
+<DIV ID="divoutlookExpressToolsAccountsNewsPropertiesGeneral" STYLE='visibility:hidden;background-layer-color:FFAAFF;position:absolute;top:80;left:75;width:367'>
+
+  <IMG NAME="outlookExpressToolsAccountsNewsPropertiesGeneral" USEMAP="#outlookExpressToolsAccountsNewsPropertiesGeneral.gif" WIDTH=367 HEIGHT=443 BORDER=0>
+
+</DIV>
+
+<MAP NAME="outlookExpressToolsAccountsNewsPropertiesGeneral.gif">
+
+  <AREA SHAPE=RECT COORDS="345,4,362,18" HREF="javascript:closeLayer('outlookExpressToolsAccountsNewsPropertiesGeneral')">
+
+  <AREA SHAPE=RECT COORDS="120,409,196,433" HREF="javascript:closeLayer('outlookExpressToolsAccountsNewsPropertiesGeneral')">
+
+  <AREA SHAPE=RECT COORDS="201,410,277,433" HREF="javascript:closeLayer('outlookExpressToolsAccountsNewsPropertiesGeneral')">
+
+  <AREA SHAPE=RECT COORDS="10,30,59,49" HREF="javascript:openLayer('outlookExpressToolsAccountsNewsPropertiesGeneral')">
+
+  <AREA SHAPE=RECT COORDS="60,30,102,49" HREF="javascript:openLayer('outlookExpressToolsAccountsNewsPropertiesServer')">
+
+  <AREA SHAPE=RECT COORDS="103,30,168,49" HREF="javascript:openLayer('outlookExpressToolsAccountsNewsPropertiesConnection')">
+
+  <AREA SHAPE=RECT COORDS="169,30,230,49" HREF="javascript:openLayer('outlookExpressToolsAccountsNewsPropertiesAdvanced')">
+
+</MAP>
+
+
+
+</BODY>
+
+</HTML>

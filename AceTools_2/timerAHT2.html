@@ -1,0 +1,115 @@
+<HTML>
+<HEAD>
+<TITLE>AHT Timer</TITLE>
+<SCRIPT LANGUAGE="Javascript1.2">
+var currentsec=0;	
+var currentmin=0;
+var currenthrs=0;	
+var currentmil=0;
+var totalmints=0;
+var totalsecns=0;
+var secstomins=0;
+var numbcalls=0;
+var currentaht=0;
+var keepgoin=false;
+function timer(){
+ if(keepgoin){
+  currentmil+=1;
+   if (currentmil==10){	
+    currentmil=0;
+    currentsec+=1;
+    totalsecns=currentsec;
+   }
+   if (currentsec==60){
+    currentsec=0;		
+    currentmin+=1;
+    totalmints+=1;
+   }
+   if (currentmin==60){
+    currentmin=0;
+    currenthrs+=1;
+   }
+  Strsec=""+currentsec;
+  Strmin=""+currentmin;	
+  Strhrs=""+currenthrs;
+  Strmil=""+currentmil;
+   if (Strmil.length!=2){
+    Strmil="0"+currentmil;
+   }
+   if (Strsec.length!=2){
+    Strsec="0"+currentsec;
+   }
+   if (Strmin.length!=2){
+    Strmin="0"+currentmin;
+   }
+   if (Strhrs.length!=2){
+    Strhrs="0"+currenthrs;
+   }
+  document.display.seconds.value=Strsec	
+  document.display.minutes.value=Strmin;
+  document.display.hours.value=Strhrs;
+  document.display.milsecs.value=Strmil;
+  setTimeout("timer()",85);
+ }
+}
+function aht(){
+numbcalls+=1;
+secstomins = totalsecns / numbcalls;
+currentaht = totalmints / numbcalls;
+Strnumcalls=""+numbcalls;
+Straht=""+currentaht;
+Strsek=""+secstomins;
+document.display.numcalls.value=Strnumcalls;
+document.display.faht.value=Straht;
+document.display.seks.value=Strsek;
+totalsecns=0;
+}
+function startover(){		
+keepgoin=false;			
+currentsec=0;
+currentmin=0;
+currenthrs=0;
+currentmil=0;
+Strsec="00";
+Strmin="00";
+Strhrs="00";
+Strmil="00";
+}
+function clearall(){
+totalmints=0;
+totalsecns=0;
+secstomins=0;
+numbcalls=0;
+currentaht=0;
+}
+</SCRIPT>
+
+<META NAME="AHT Timer, tony acevedo,Jeanette Pimentel" CONTENT="Timer">
+</HEAD>
+<BODY BGCOLOR=#b6c7e5><div align=center>
+<CENTER>
+<FORM NAME="display" ONRESET="clearall()">
+<TABLE border=1 BGCOLOR=#777777 cellpadding=1 cellspacing=1 frame=box rules=none>
+<TR><TD border=1 BGCOLOR=#777777 valign="middle" COLSPAN=3>
+<DIV ALIGN="center">
+<INPUT TYPE="text" NAME="hours" VALUE="00" SIZE=2 
+STYLE="height:24px;font-size:18px;width:28px;font-family:Arial;color:#FFCC00;background:black"><font size=3><b>&nbsp;:</font></b>
+<INPUT TYPE="text" NAME="minutes" VALUE="00" SIZE=2 STYLE="height:24px;font-size:18px;width:28px;font-family:Arial;color:#FFCC00;background:black"><font size=3><b>&nbsp;:</font></b>
+<INPUT TYPE="text" NAME="seconds" VALUE="00" SIZE=2 STYLE="height:24px;font-size:18px;width:28px;font-family:Arial;color:#FFCC00;background:black"><font size=3><b>&nbsp;:</font></b>
+<INPUT TYPE="text" NAME="milsecs" VALUE="00" SIZE=2
+STYLE="height:24px;font-size:18px;width:28px;font-family:Arial;color:#FFCC00;background:black">
+</DIV></TD></TR>
+<TR><TD border=0><DIV ALIGN="center">
+<INPUT TYPE="button" NAME="start" VALUE="START" ONCLICK="keepgoin=true;timer()" STYLE="height:14px;font-size:8px;width:40px;font-family:tahoma,arial;color:blue;background:#C0C0C0">
+</TD><TD><DIV ALIGN="center">
+<INPUT TYPE="button" NAME="Stop" VALUE="STOP" ONCLICK="keepgoin=false;startover()"
+STYLE="height:14px;font-size:8px;width:40px;font-family:tahoma,arial;color:blue;background:#C0C0C0">
+</DIV></TD><TD><DIV ALIGN="center">
+<INPUT TYPE="button" NAME="AHT" VALUE="AHT" ONCLICK="aht()"
+STYLE="height:14px;font-size:8px;width:40px;font-family:tahoma,arial;color:blue;background:#C0C0C0">
+</DIV></TD></TR>
+<tr><td colspan=3>&nbsp;&nbsp;&nbsp;<font size=2>CALLS&nbsp; :</font>&nbsp;<input type="text" name="numcalls" size=2 style="width:22px;height:20;font-family:Tahoma;font-size=12px;color:black;background:#b6c7e5;"><font size=2>&nbsp;&nbsp;AHT :</font>&nbsp;<input type="text" Name="faht" size=4 style="width:45;height:20;font-family:Tahoma;font-size=12px;color:black;background:#b6c7e5">&nbsp;:&nbsp;<Input type="text" Name="seks" size=3 style="width:25;height:20;font-family:Tahoma;font-size=12px;color:black;background:#b6c7e5">&nbsp;&nbsp;</td></tr><tr><td colspan=3><DIV ALIGN="center"><INPUT TYPE="reset" NAME="reset" VALUE="R E S E T" STYLE="height:14px;font-size:8px;width:65px;font-family:tahoma,arial;color:red;background:#C0C0C0"></DIV></td></tr></TABLE>
+</FORM>
+</CENTER></div>
+</BODY>
+</HTML>

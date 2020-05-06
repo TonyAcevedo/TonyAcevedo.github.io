@@ -1,0 +1,134 @@
+<html><title>SBC Client States, Time</title><AUTHOR Tony Acevedo, EP101, Team Ronnin, Team Chinoy>
+<SCRIPT LANGUAGE="JavaScript">
+var DSTyear="";
+DSTdate=new Date();
+DSTyear=DSTdate.getFullYear();
+
+dston = new Date('Sun Apr 4 01:59:59 UTC+0800 2005');
+dstoff =new Date('Sun Oct 31 02:59:59 UTC+0800 2005');
+
+function time(){
+<!-- Begin
+var Pacyear="";
+newdate1 = new Date();
+Pacdate = new Date();
+
+var Paczone = newdate1.getTimezoneOffset();
+newtime1=newdate1.getTime();
+var zone1 = 8;
+  if (newdate1 > dston && newdate1 < dstoff ) {zoneP = zone1 - 1 ;}
+else {zoneP = zone1 ;}
+var newzone1 = (zoneP*60*60*1000);
+newtimeP = newtime1+(Paczone*60*1000)-newzone1;
+Pacdate.setTime(newtimeP);
+Pacday = Pacdate.getDay();
+Pacmonth = Pacdate.getMonth();
+Pacwkday= Pacdate.getDate();
+Pacyr= Pacdate.getYear();
+Pacyear = Pacyr;
+if (Pacyear < 2000)
+   
+Pacyear = Pacyear + 1900;
+ Pachrs = Pacdate.getHours();
+if (Pachrs >= 12) {Pachrs = (Pachrs == 12) ? 12 : Pachrs - 12; mmP = " PM";}
+else {Pachrs = (Pachrs == 0) ? 12 : Pachrs; mmP = " AM";}
+Pacmins = Pacdate.getMinutes();
+if (Pacmins < 10){Pacminuto = ":0" + Pacmins;}
+else {Pacminuto = ":" + Pacmins;};
+Pacsecs =Pacdate.getSeconds();
+if (Pacsecs<10){Pacsegnd = ":0" + Pacsecs;}
+else {Pacsegnd = ":" + Pacsecs;};
+
+var Cenyear="";
+newdate2 = new Date();
+Cendate = new Date();
+var Cenzone = newdate2.getTimezoneOffset();
+newtime2=newdate2.getTime();
+var zone2 = 6;
+  if (newdate2 > dston && newdate2 < dstoff ) {zoneC = zone2 - 1 ;}
+else {zoneC = zone2 ;}
+var newzone2 = (zoneC*60*60*1000);
+newtimeC = newtime2+(Cenzone*60*1000)-newzone2;
+Cendate.setTime(newtimeC);
+Cenday = Cendate.getDay();
+Cenmonth = Cendate.getMonth();
+Cenwkday= Cendate.getDate();
+Cenyr= Cendate.getYear();
+Cenyear = Cenyr;
+if (Cenyear < 2000)
+Cenyear = Cenyear + 1900;
+ Cenhrs = Cendate.getHours();
+if (Cenhrs >= 12) {Cenhrs = (Cenhrs == 12) ? 12 : Cenhrs - 12; mmC = " PM";}
+
+else {Cenhrs = (Cenhrs == 0) ? 12 : Cenhrs; mmC = " AM";}
+Cenmins = Cendate.getMinutes();
+if (Cenmins < 10){Cenminuto = ":0" + Cenmins;}
+else {Cenminuto = ":" + Cenmins;};
+Censecs =Cendate.getSeconds();
+if (Censecs<10){Censegnd = ":0" + Censecs;}
+
+else {Censegnd = ":" + Censecs;};
+
+var Easyear="";
+newdate3 = new Date();
+Easdate = new Date();
+var Easzone =newdate3.getTimezoneOffset();
+newtime3=newdate3.getTime();
+var zone3 = 5;
+if (newdate3 > dston && newdate3 < dstoff ) {zoneE = zone3 - 1 ;}
+else {zoneE = zone3 ;}
+var newzone3 = (zoneE*60*60*1000);
+newtimeE =newtime3+(Easzone*60*1000)-newzone3;
+Easdate.setTime(newtimeE);
+Easday = Easdate.getDay();
+
+Easmonth = Easdate.getMonth();
+Easwkday= Easdate.getDate();
+Easyr= Easdate.getYear();
+Easyear = Easyr;
+
+if (Easyear < 2000)
+Easyear = Easyear + 1900;
+Eashrs = Easdate.getHours();
+if (Eashrs >= 12) {Eashrs = (Eashrs == 12) ? 12 : Eashrs - 12; mmE = " PM";}
+else {Eashrs = (Eashrs == 0) ? 12 : Eashrs; mmE = " AM";}
+Easmins = Easdate.getMinutes();
+if (Easmins < 10){Easminuto = ":0" + Easmins;}
+else {Easminuto = ":" + Easmins;};
+Eassecs =Easdate.getSeconds();
+if (Eassecs<10){Eassegnd = ":0" + Eassecs;}
+else {Eassegnd = ":" + Eassecs;};
+
+
+
+arday = new Array("Sunday ","Monday ","Tuesday ","Wednesday ","Thursday ","Friday ","Saturday ");
+
+armonth = new Array("Jan ","Feb ","Mar ","April ","May ","June ","July ","Aug ","Sep ", "Oct ","Nov ","Dec ");
+
+tmp='<font size=1 color=#A00B0E><div align=left><i>*Daylight Saving Time: 2am April 04, '+DSTyear+'  to October 31, '+DSTyear+' </i></font></div>';
+tmp+='<table bgcolor=gray cellpadding=0 cellspacing=0 frame=box width=700 class="clock">';
+tmp+='<tr><td width=200 bgcolor=#D9FFEC align=center  CLASS="time"><font color=#CC6904 size=1 face=arial><b>PACIFIC TIME</b></font><HR>';
+tmp+='<font size=3 color=#008004 face=tahoma>'+Pachrs+Pacminuto+Pacsegnd+'<font color=#585DF1>'+mmP+'</font></font><BR>';
+tmp+='<font size=2 color=red face=tahoma>'+arday[Pacday]+'</font><font size=2>'+armonth[Pacmonth];
+tmp+=Pacwkday+', '+Pacyear+'</font><BR><font face=tahoma size=1>&nbsp;&nbsp;&nbsp;C a l i f o r n i a & N e v a d a</font></td>';
+
+tmp+='<td width=300 bgcolor=#FFF3CE align=center><font size=1 face=arial><b>CENTRAL TIME</b></font><HR>';
+tmp+='<font size=3 color=#008004 face=tahoma>'+Cenhrs+Cenminuto+Censegnd+'<font color=#585DF1>'+mmC+'</font></font><BR>';
+tmp+='<font size=2 color=red face=tahoma>'+arday[Cenday]+'</font><font size=2>'+armonth[Cenmonth];
+tmp+=Cenwkday+', '+Cenyear+'</font><BR><font face=tahoma size=1>Arkansas, Kansas, Illinois, Missouri, Oklahoma, Texas, Wisconsin</font></td>';
+
+tmp+='<td width=200 bgcolor=#DDFFFF align=center><font size=1 face=arial><b>EASTERN TIME</b></font><HR>';
+tmp+='<font size=3 color=#008004 face=tahoma>'+Eashrs+Easminuto+Eassegnd+'<font color=#585DF1>'+mmE+'</font></font><BR>';
+tmp+='<font size=2 color=red face=tahoma>'+arday[Easday]+'</font><font size=2>'+armonth[Easmonth];
+tmp+=Easwkday+',&nbsp;'+Easyear+'</font><BR><font face=tahoma size=1>&nbsp;Indiana, Michigan, Ohio, Connecticut</font></td></tr></table>';
+
+document.getElementById("clockgoeshere").innerHTML=tmp;
+clocktime=setTimeout("time()","1000");	
+}
+//-->
+
+
+</SCRIPT>
+<body bgcolor=#b6c7e5 onLoad="time()">
+<div id="clockgoeshere"></div></body>
+</html>

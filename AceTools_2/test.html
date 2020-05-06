@@ -1,0 +1,59 @@
+<HTML>
+<BODY>
+<script>
+<!--
+var a;
+var xpos=-200;
+var started=0;
+var Id=0;
+function movemenu1(evnt){
+if (a==1){
+a=-1;
+}
+else{
+a=1;
+}
+if(document.layers){document.contents.top=document.marker.top+40;document.contents.visibility='visible';}
+if(document.all){document.all.contents.style.top=parseInt(document.all.marker.style.top)+30;document.all.contents.style.visibility="visible";}
+if(!document.all && document.getElementById){
+document.getElementById("contents").style.top=parseInt(document.getElementById("marker").style.top)+30+"px";
+document.getElementById("contents").style.visibility="visible";
+}
+if(!Id){movemenu();started=1;}
+}
+
+function movemenu(){
+if(xpos>4){xpos=0;}
+if(xpos<-200){xpos=-200;}
+xpos=xpos+4*a;
+if(document.layers){
+document.contents.left=xpos;
+}
+if(document.all){
+document.all.contents.style.left=xpos;
+}
+if(!document.all && document.getElementById){
+document.getElementById("contents").style.left=xpos+"px";
+}
+if (xpos<=-200 || xpos>=0){window.clearTimeout(Id);Id=0;}else{Id = window.setTimeout("movemenu();",100);}
+}
+// -->
+</script>
+
+<div id="contents" style="position:absolute;top:0;left:150;visibility:hidden;layer-background-color:#FFEEEE;background-color:#FFEEEE">
+<TABLE width=200 bgcolor="red" cellpadding=2 cellspacing=2>
+<TR><TD align=left class="navbar"><a href="#">1.The Layer Object</a></TD></TR>
+<TR><TD align=left class="navbar"><a href="#">2.Addressing the Layer</a></TD></TR>
+<TR><TD align=left class="navbar">3.Detecting Browsers</TD></TR>
+<TR><TD align=left class="navbar">4.Mouse Events</TD></TR>
+<TR><TD align=left class="navbar">5.Changing Layer Content</TD></TR> 
+<TR><TD align=left class="navbar">6.Using Timers</TD></TR> 
+<TR><TD align=left class="navbar">7.Simple Animation</TD></TR> 
+<TR><TD align=left class="navbar">8.Cookies</TD></TR> 
+<TR><TD align=left class="navbar">9.Netscape 4 Warnings!!</TD></TR>
+</TABLE>
+</div>
+<div id ="marker" style="position:absolute;top:12;left:10;background-color:white;layer-background-color:white"><a  href="javascript:void(0)" onMouseOver="movemenu1();"><font color=red>Menu</font></a></div>
+</body>
+</HTML>
+

@@ -1,0 +1,71 @@
+<html><title>SBC Client States, Time</title><AUTHOR Tony Acevedo, EP101, Team Ronnin, Team Chinoy>
+<SCRIPT LANGUAGE="JavaScript">
+function time(){
+<!-- Begin
+var month="";
+var year="";
+newdate = new Date();
+mnladate = new Date();
+dston = new Date('Sun April 4 01:59:59 UTC+0800 2004Sun');
+dstoff =new Date('Sun Oct 31 02:59:59 UTC+0800 2004Sun');
+var mnlazone = newdate.getTimezoneOffset();
+newtime=newdate.getTime();
+var zone = -8;  
+if (newdate > dston && newdate < dstoff ) {
+zonea = zone ;
+}
+else {
+zonea = zone ;
+}
+var newzone = (zonea*60*60*1000);
+newtimea = newtime+(mnlazone*60*1000)-newzone;
+mnladate.setTime(newtimea);
+mnladay = mnladate.getDay();
+mnlamonth = mnladate.getMonth();
+mnlaweekday= mnladate.getDate();
+mnlayear= mnladate.getYear();
+year = mnlayear;
+
+if (year < 2000)   
+year = year + 1900; 
+mnlahours = mnladate.getHours();
+if (mnlahours >= 12) {
+mnlahours = (mnlahours == 12) ? 12 : mnlahours - 12; mm = " PM";
+}
+else {
+mnlahours = (mnlahours == 0) ? 12 : mnlahours; mm = " AM";
+}
+mnlaminutes = mnladate.getMinutes();
+if (mnlaminutes < 10){
+minuto = ":0" + mnlaminutes;
+}
+else {
+minuto = ":" + mnlaminutes;
+};
+mnlaseconds =mnladate.getSeconds();
+if (mnlaseconds<10){
+segundo = ":0" + mnlaseconds;
+}
+else {
+segundo = ":" + mnlaseconds;
+};
+arday = new Array("Sunday ","Monday ","Tuesday ","Wednesday ","Thursday ","Friday ","Saturday ");
+armonth = new Array("Jan ","Feb ","Mar ","Apr ","May ","June ","July ","Aug ","Sep ", "Oct ","Nov ","Dec ");
+
+tmp='<table class="clock"><tr><td CLASS="time"><font face=tahoma size=2><font color=#008000>&nbsp;&nbsp;MANILA&nbsp;:</Font>';
+tmp+='<font size=3>'+mnlahours+minuto+segundo+'<font color=blue>'+mm+'</font></font>&nbsp;&nbsp;';
+tmp+='<font size=2 color=red>'+arday[mnladay]+'</font><font size=2>'+armonth[mnlamonth];
+tmp+=mnlaweekday+', '+year+'</font></td>';
+document.getElementById("clockgoeshere").innerHTML=tmp;
+clocktime=setTimeout("time()","1000");	
+}
+//-->
+</SCRIPT>
+
+<body bgcolor=#b6c7e5 onLoad="time()">  
+<div id="clockgoeshere"></div>
+<hr><font color="green" face="Arial narrow" size="1">&nbsp;&nbsp;&nbsp;&nbsp;<b>AMERITECH :</b></font><font color="darkblue" face="arial" size="1">&nbsp;Illinois, Indiana, Ohio, Wisconsin, Michigan</font><br>
+<font color="green" face="Arial narrow" size="1">&nbsp;&nbsp;&nbsp;&nbsp;<b>SWBELL :</b></font><font color="darkblue" face="arial" size="1">&nbsp;Arkansas, Kansas, Missouri, Oklahoma, Texas</font><br>
+<font color="green" face="Arial Narrow" size="1">&nbsp&nbsp;&nbsp;&nbsp;<b>PAC/NEVBELL :</b></font><font color="darkblue" face="arial" size="1">&nbsp;California and Nevada</font><br></body>                             
+</body></center>
+</html>
